@@ -33,7 +33,7 @@ public static class SeedData
 
                 new Book
                 {
-                    Title = "The Power of Habit: Why We Do What We Do in Life and Business",
+                    Title = "The Power of Habit",
                     Author = "Charles Duhigg",
                     Genre = "Self-help",
                     AvailabilityStatus = "Loaned",

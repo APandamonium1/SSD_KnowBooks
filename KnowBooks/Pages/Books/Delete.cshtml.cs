@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using KnowBooks.Data;
 using KnowBooks.Models;
 
 namespace KnowBooks.Pages.Books
 {
+    [Authorize]
     public class DeleteModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;
