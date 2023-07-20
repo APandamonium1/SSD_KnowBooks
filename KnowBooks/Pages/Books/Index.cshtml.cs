@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using KnowBooks.Data;
 using KnowBooks.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KnowBooks.Pages.Books
 {
+    [Authorize(Policy = "TwoFactorEnabled")]
     public class IndexModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;

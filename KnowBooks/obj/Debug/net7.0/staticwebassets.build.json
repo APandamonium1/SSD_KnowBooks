@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "R1INMkjao33+49zhm5qBzvyuzx+Q+MapyDVykwEajq8=",
+  "Hash": "aXmgtv74ErZhVmuWbjBi77iDVKZ+21bsZZUEPkWXeFI=",
   "Source": "KnowBooks",
   "BasePath": "_content/KnowBooks",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\wwwroot\\js\\qr.js",
+      "SourceId": "KnowBooks",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\wwwroot\\",
+      "BasePath": "_content/KnowBooks",
+      "RelativePath": "js/qr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\qr.js"
+    },
+    {
       "Identity": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\wwwroot\\js\\site.js",
       "SourceId": "KnowBooks",
       "SourceType": "Discovered",
@@ -2089,6 +2106,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\wwwroot\\lib\\qrcode.js",
+      "SourceId": "KnowBooks",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\wwwroot\\",
+      "BasePath": "_content/KnowBooks",
+      "RelativePath": "lib/qrcode.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\qrcode.js"
     }
   ]
 }

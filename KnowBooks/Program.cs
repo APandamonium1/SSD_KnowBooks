@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using KnowBooks.Data;
 using KnowBooks.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication;
 using KnowBooks.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -46,7 +47,12 @@ namespace KnowBooks
                 options.User.AllowedUserNameCharacters =
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = false;
+                // Confirmed Email
+                options.SignIn.RequireConfirmedEmail = true;
             });
+
+            builder.Services.AddAuthorization(options => options.AddPolicy("TwoFactorEnabled", x => x.RequireClaim("amr", "mfa")));
+
 
             builder.Services.AddTransient<IEmailSender, EmailSender>();
             builder.Services.Configure<EmailSender>(builder.Configuration);

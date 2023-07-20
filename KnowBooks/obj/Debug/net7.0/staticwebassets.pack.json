@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\wwwroot\\js\\qr.js",
+      "PackagePath": "staticwebassets\\js\\qr.js"
+    },
+    {
       "Id": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -243,6 +247,10 @@
     {
       "Id": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\wwwroot\\lib\\qrcode.js",
+      "PackagePath": "staticwebassets\\lib\\qrcode.js"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.KnowBooks.Microsoft.AspNetCore.StaticWebAssets.props",
