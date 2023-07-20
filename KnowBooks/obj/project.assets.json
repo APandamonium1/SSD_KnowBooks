@@ -11753,11 +11753,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\robin\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
+      "projectUniqueName": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
       "projectName": "KnowBooks",
-      "projectPath": "C:\\Users\\robin\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
+      "projectPath": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
       "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\robin\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\obj\\",
+      "outputPath": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Users\\robin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
