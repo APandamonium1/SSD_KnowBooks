@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using AspNetCore.ReCaptcha;
+using System.Configuration;
 
 namespace KnowBooks.Areas.Identity.Pages.Account
 {
@@ -22,11 +24,16 @@ namespace KnowBooks.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IReCaptchaService _recaptchaService;
+        private readonly IConfiguration _configuration;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, IReCaptchaService recaptchaService,
+            IConfiguration configuration)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _recaptchaService = recaptchaService;
+            _configuration = configuration;
         }
 
         /// <summary>
@@ -102,11 +109,22 @@ namespace KnowBooks.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
+        [BindProperty]
+        public string ResponseToken { get; set; }
+
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            string recaptchaResponse = Request.Form["g-Recaptcha-Response"];
+            if (string.IsNullOrWhiteSpace(recaptchaResponse) || !await _recaptchaService.VerifyAsync(recaptchaResponse))
+            {
+                ModelState.AddModelError(string.Empty, "Please complete the Recaptcha verification.");
+                return Page();
+            }
+
 
             if (ModelState.IsValid)
             {

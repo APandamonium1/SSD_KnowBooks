@@ -1,4 +1,8 @@
 ﻿@page
+@using Microsoft.Extensions.Configuration
+@using AspNetCore.ReCaptcha
+@inject IReCaptchaService RecaptchaService
+@inject IConfiguration Configuration
 @model LoginModel
 
 @{
@@ -7,6 +11,7 @@
 
 <h1>@ViewData["Title"]</h1>
 <div class="row">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
@@ -29,6 +34,7 @@
                         @Html.DisplayNameFor(m => m.Input.RememberMe)
                     </label>
                 </div>
+                <div class="g-recaptcha" data-sitekey="@Configuration["ReCaptcha:SiteKey"]" name="g-Recaptcha-Response"></div>
                 <div>
                     <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
                 </div>

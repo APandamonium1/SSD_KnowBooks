@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authentication;
 using KnowBooks.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using System.Configuration;
+using AspNetCore.ReCaptcha;
 
 namespace KnowBooks
 {
@@ -15,6 +17,8 @@ namespace KnowBooks
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConsole();
 
             // Add services to the container.
             builder.Services.AddRazorPages(options =>
@@ -56,6 +60,9 @@ namespace KnowBooks
 
             builder.Services.AddTransient<IEmailSender, EmailSender>();
             builder.Services.Configure<EmailSender>(builder.Configuration);
+
+            builder.Services.AddReCaptcha(builder.Configuration.GetSection("ReCaptcha"));
+
 
             var app = builder.Build();
 
@@ -110,5 +117,3 @@ namespace KnowBooks
             });
     }
 }
-
-
