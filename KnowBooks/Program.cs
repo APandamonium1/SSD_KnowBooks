@@ -32,9 +32,10 @@ namespace KnowBooks
                 options.UseSqlServer(builder.Configuration.GetConnectionString("KnowBooksContext") ?? throw new InvalidOperationException("Connection string 'KnowBooksContext' not found.")));
 
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>().AddEntityFrameworkStores<KnowBooksContext>();
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<ApplicationRole>().AddEntityFrameworkStores<KnowBooksContext>();
 
-            builder.Services.Configure<IdentityOptions>(options =>
+
+			builder.Services.Configure<IdentityOptions>(options =>
             {
                 // Password settings.
                 options.Password.RequireDigit = false;
@@ -95,25 +96,49 @@ namespace KnowBooks
             app.Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Program>();
-            })
-            .ConfigureServices((hostContext, services) =>
-            {
-                // ... Other services
+		//public static IHostBuilder CreateHostBuilder(string[] args) =>
+		//Host.CreateDefaultBuilder(args)
+		//    .ConfigureWebHostDefaults(webBuilder =>
+		//    {
+		//        webBuilder.UseStartup<Program>();
+		//    })
+		//    .ConfigureServices((hostContext, services) =>
+		//    {
+		//        // ... Other services
 
-                // Register your email sender implementation
-                services.AddSingleton<IEmailSender, EmailSender>();
-                services.AddDefaultIdentity<ApplicationUser>(options =>
-                {
-                    options.SignIn.RequireConfirmedAccount = true;
-                    // ... Other options
-                })
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<KnowBooksContext>();
-            });
-    }
+		//        // Register your email sender implementation
+		//        services.AddSingleton<IEmailSender, EmailSender>();
+		//        services.AddDefaultIdentity<ApplicationUser>(options =>
+		//        {
+		//            options.SignIn.RequireConfirmedAccount = true;
+		//            // ... Other options
+		//        })
+		//        .AddRoles<IdentityRole>()
+		//        .AddEntityFrameworkStores<KnowBooksContext>();
+		//    });
+
+		public void ConfigureServices(IServiceCollection services)
+		{
+			// ... (your existing service registrations)
+			////roles
+			services.AddIdentity<ApplicationUser, ApplicationRole>()
+				 .AddDefaultUI()
+				 .AddRoles<ApplicationRole>()
+				 .AddEntityFrameworkStores<KnowBooksContext>()
+				 .AddDefaultTokenProviders();
+
+
+
+			// Register your email sender implementation
+			services.AddSingleton<IEmailSender, EmailSender>();
+
+			services.AddDefaultIdentity<ApplicationUser>(options =>
+			{
+				options.SignIn.RequireConfirmedAccount = true;
+				// ... (other options)
+			})
+			.AddRoles<IdentityRole>()
+			.AddEntityFrameworkStores<KnowBooksContext>();
+		}
+	}
 }

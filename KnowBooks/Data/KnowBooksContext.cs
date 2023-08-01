@@ -8,7 +8,7 @@ using KnowBooks.Models;
 
 namespace KnowBooks.Data
 {
-    public class KnowBooksContext : IdentityDbContext<ApplicationUser>
+    public class KnowBooksContext :IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         public KnowBooksContext (DbContextOptions<KnowBooksContext> options)
             : base(options)

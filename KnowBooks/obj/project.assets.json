@@ -13162,27 +13162,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\robin\\.nuget\\packages\\": {},
-    "C:\\Users\\robin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\chowq\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
+      "projectUniqueName": "C:\\Users\\chowq\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
       "projectName": "KnowBooks",
-      "projectPath": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
-      "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\robin\\source\\repos\\SSD_KnowBooks\\KnowBooks\\obj\\",
+      "projectPath": "C:\\Users\\chowq\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
+      "packagesPath": "C:\\Users\\chowq\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chowq\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Users\\robin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\chowq\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13190,7 +13182,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.305\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -13267,7 +13258,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
