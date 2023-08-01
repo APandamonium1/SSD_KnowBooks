@@ -26,6 +26,7 @@ namespace KnowBooks.Models
         //Indicates Genre as mandatory field
         public string Genre { get; set; } = string.Empty;
 
+        /*
         [RegularExpression("^[A-Za-z]{1,20}$", ErrorMessage = "Please enter either 'Available' or 'Loaned' only.")]
         private string? _availabilityStatus;
         [Display(Name = "Available Status")]//Displays as 2 words instead of AvailabilityStatus
@@ -38,8 +39,12 @@ namespace KnowBooks.Models
                 // Set the default value of the AvailabilityStatus property to Available
                 //_availabilityStatus = "Available";
             }
-        }
+        }*/
 
+        public string AvailabilityStatus { get; set; }
+
+        [Required, StringLength(60)] //Max 60 characters
+        //Indicates Author as mandatory field
         public string Borrower { get; set; }
     }
 }

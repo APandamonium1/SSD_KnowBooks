@@ -1,4 +1,4 @@
-﻿@page "{id:int?}"
+﻿@page
 @model KnowBooks.Pages.Books.DetailsModel
 
 @{
@@ -34,6 +34,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Book.AvailabilityStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.Borrower)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.Borrower)
         </dd>
     </dl>
 </div>

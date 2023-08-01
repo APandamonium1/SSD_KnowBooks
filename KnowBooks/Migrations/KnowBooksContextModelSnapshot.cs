@@ -151,7 +151,8 @@ namespace KnowBooks.Migrations
 
                     b.Property<string>("Borrower")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("Genre")
                         .IsRequired()

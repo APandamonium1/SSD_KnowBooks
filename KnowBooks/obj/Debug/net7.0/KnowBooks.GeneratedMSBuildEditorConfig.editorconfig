@@ -196,6 +196,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/robin/OneDrive - Ngee Ann Polytechnic/SSD/KnowBooks/KnowBooks/Pages/Books/Loan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcTG9hbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/robin/OneDrive - Ngee Ann Polytechnic/SSD/KnowBooks/KnowBooks/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -238,6 +242,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/robin/OneDrive - Ngee Ann Polytechnic/SSD/KnowBooks/KnowBooks/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/robin/OneDrive - Ngee Ann Polytechnic/SSD/KnowBooks/KnowBooks/Pages/YourBooks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcWW91ckJvb2tzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/robin/OneDrive - Ngee Ann Polytechnic/SSD/KnowBooks/KnowBooks/Pages/_ViewImports.cshtml]
