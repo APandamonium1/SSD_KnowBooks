@@ -31,10 +31,12 @@ namespace KnowBooks.Pages.Roles
 		}
 		public async Task<IActionResult> OnPostAsync()
 		{
-			//if (!ModelState.IsValid)
-			//{
-			//	return Page();
-			//}
+			if (!ModelState.IsValid)
+			{
+				return Page();
+			}
+
+
 			ApplicationRole appRole = await _roleManager.FindByIdAsync(ApplicationRole.Id);
 			appRole.Id = ApplicationRole.Id;
 			appRole.Name = ApplicationRole.Name;

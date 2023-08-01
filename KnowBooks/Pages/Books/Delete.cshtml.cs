@@ -11,7 +11,7 @@ using KnowBooks.Models;
 
 namespace KnowBooks.Pages.Books
 {
-    [Authorize]
+    //[Authorize]
     public class DeleteModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;

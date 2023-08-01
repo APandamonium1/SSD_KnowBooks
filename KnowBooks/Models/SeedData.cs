@@ -55,7 +55,26 @@ public static class SeedData
                     AvailabilityStatus = "Available"
                 }
             );
-            context.SaveChanges();
+
+
+
+			//if (context == null || context.Roles == null)
+			//{
+			//	throw new ArgumentNullException("Null KnowBooksContext");
+			//}
+			//if (context.Roles.Any())
+			//{
+			//	return;   // DB has been seeded
+			//}
+   //         context.Roles.AddRange(
+   //             new ApplicationRole
+   //             {
+
+   //             }
+
+   //         );
+
+		   context.SaveChanges();
         }
     }
 }
