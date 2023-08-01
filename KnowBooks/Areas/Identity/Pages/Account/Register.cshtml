@@ -1,4 +1,8 @@
 ﻿@page
+@using Microsoft.Extensions.Configuration
+@using AspNetCore.ReCaptcha
+@inject IReCaptchaService RecaptchaService
+@inject IConfiguration Configuration
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
@@ -8,6 +12,7 @@
 
 <div class="row">
     <div class="col-md-4">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
             <hr />
@@ -39,6 +44,8 @@
                 <label asp-for="Input.BirthDate">Date of Birth</label>
                 <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
             </div>
+            <div class="g-recaptcha" data-sitekey="@Configuration["ReCaptcha:SiteKey"]" name="g-Recaptcha-Response"></div>
+            <br />
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>

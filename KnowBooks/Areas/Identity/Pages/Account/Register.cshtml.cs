@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using AspNetCore.ReCaptcha;
 
 namespace KnowBooks.Areas.Identity.Pages.Account
 {
@@ -30,13 +31,17 @@ namespace KnowBooks.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IReCaptchaService _recaptchaService;
+        private readonly IConfiguration _configuration;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IReCaptchaService recaptchaService,
+            IConfiguration configuration)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -44,6 +49,8 @@ namespace KnowBooks.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _recaptchaService = recaptchaService;
+            _configuration = configuration;
         }
 
         /// <summary>
@@ -120,6 +127,14 @@ namespace KnowBooks.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            string recaptchaResponse = Request.Form["g-Recaptcha-Response"];
+            if (string.IsNullOrWhiteSpace(recaptchaResponse) || !await _recaptchaService.VerifyAsync(recaptchaResponse))
+            {
+                ModelState.AddModelError(string.Empty, "Please complete the Recaptcha verification.");
+                return Page();
+            }
+
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
