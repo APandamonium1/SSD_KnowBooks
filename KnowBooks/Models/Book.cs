@@ -39,5 +39,7 @@ namespace KnowBooks.Models
                 //_availabilityStatus = "Available";
             }
         }
+
+        public string Borrower { get; set; }
     }
 }

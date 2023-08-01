@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KnowBooks.Migrations
 {
     [DbContext(typeof(KnowBooksContext))]
-    [Migration("20230801100419_InitialCreate")]
+    [Migration("20230801132314_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -149,6 +149,10 @@ namespace KnowBooks.Migrations
                         .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("AvailabilityStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Borrower")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

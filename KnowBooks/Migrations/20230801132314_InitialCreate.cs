@@ -64,7 +64,8 @@ namespace KnowBooks.Migrations
                     Title = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     Author = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     Genre = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    AvailabilityStatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    AvailabilityStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Borrower = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

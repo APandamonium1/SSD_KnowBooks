@@ -29,6 +29,7 @@ public static class SeedData
                     Author = "Marcus Aurelius",
                     Genre = "Philosophy",
                     AvailabilityStatus = "Available",
+                    Borrower = ""
                 },
 
                 new Book
@@ -37,6 +38,7 @@ public static class SeedData
                     Author = "Charles Duhigg",
                     Genre = "Self-help",
                     AvailabilityStatus = "Loaned",
+                    Borrower = ""
                 },
 
                 new Book
@@ -44,7 +46,8 @@ public static class SeedData
                     Title = "Outliers",
                     Author = "Malcolm Gladwell",
                     Genre = "Self-help",
-                    AvailabilityStatus = "Available"
+                    AvailabilityStatus = "Available",
+                    Borrower = ""
                 },
 
                 new Book
@@ -52,7 +55,8 @@ public static class SeedData
                     Title = "Afterlifes",
                     Author = "Abdulrazak Gurnah",
                     Genre = "Fiction",
-                    AvailabilityStatus = "Available"
+                    AvailabilityStatus = "Available",
+                    Borrower = ""
                 }
             );
 
