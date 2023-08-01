@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Configuration;
 using AspNetCore.ReCaptcha;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace KnowBooks
 {
@@ -26,7 +25,7 @@ namespace KnowBooks
             {
                 //options.Conventions.AuthorizePage("/Books/Create");
                 //options.Conventions.AuthorizeAreaPage("Identity", "/Account/Manage");
-                //options.Conventions.AuthorizeFolder("/Books");
+                options.Conventions.AuthorizeFolder("/Books");
             });
 
             builder.Services.AddDbContext<KnowBooksContext>(options =>
@@ -82,7 +81,6 @@ namespace KnowBooks
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseStatusCodePages(Text.Plain, "Status Code Page: {0}");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
