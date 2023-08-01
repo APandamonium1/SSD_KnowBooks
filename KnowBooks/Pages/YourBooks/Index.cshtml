@@ -2,14 +2,11 @@
 @model KnowBooks.Pages.YourBooks.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Books";
 }
 
-<h1>Index</h1>
+<h1>Your Books</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -42,7 +39,7 @@
                         @Html.DisplayFor(modelItem => item.Genre)
                     </td>
                     <td>
-                        <a asp-page="./Loan" asp-route-id="@item.ISBN">Return</a>
+                        <a asp-page="./Return" asp-route-id="@item.ISBN">Return</a>
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.ISBN">Edit</a> |

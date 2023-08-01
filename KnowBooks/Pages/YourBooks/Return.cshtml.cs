@@ -9,13 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using KnowBooks.Data;
 using KnowBooks.Models;
 
-namespace KnowBooks.Pages.Books
+namespace KnowBooks.Pages.YourBooks
 {
-    public class LoanModel : PageModel
+    public class ReturnModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;
 
-        public LoanModel(KnowBooks.Data.KnowBooksContext context)
+        public ReturnModel(KnowBooks.Data.KnowBooksContext context)
         {
             _context = context;
         }
@@ -50,7 +50,7 @@ namespace KnowBooks.Pages.Books
 
             _context.Attach(Book).State = EntityState.Modified;
 
-            Book.Borrower = User.Identity.Name;
+            Book.Borrower = "null";
 
             try
             {
@@ -68,7 +68,7 @@ namespace KnowBooks.Pages.Books
                 }
             }
 
-            return RedirectToPage("../YourBooks/Index");
+            return RedirectToPage("./Index");
         }
 
         private bool BookExists(int id)
