@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chowq\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj": {}
+    "C:\\Users\\PandaJW\\Desktop\\Secure Software Development\\Assignment\\KnowGitBooks\\KnowBooks\\KnowBooks.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chowq\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj": {
+    "C:\\Users\\PandaJW\\Desktop\\Secure Software Development\\Assignment\\KnowGitBooks\\KnowBooks\\KnowBooks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chowq\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
+        "projectUniqueName": "C:\\Users\\PandaJW\\Desktop\\Secure Software Development\\Assignment\\KnowGitBooks\\KnowBooks\\KnowBooks.csproj",
         "projectName": "KnowBooks",
-        "projectPath": "C:\\Users\\chowq\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\KnowBooks.csproj",
-        "packagesPath": "C:\\Users\\chowq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chowq\\Source\\Repos\\SSD_KnowBooks\\KnowBooks\\obj\\",
+        "projectPath": "C:\\Users\\PandaJW\\Desktop\\Secure Software Development\\Assignment\\KnowGitBooks\\KnowBooks\\KnowBooks.csproj",
+        "packagesPath": "C:\\Users\\PandaJW\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PandaJW\\Desktop\\Secure Software Development\\Assignment\\KnowGitBooks\\KnowBooks\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\chowq\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PandaJW\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -98,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
