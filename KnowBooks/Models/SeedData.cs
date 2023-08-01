@@ -58,14 +58,14 @@ public static class SeedData
 
 
 
-            if (context == null || context.Roles == null)
-            {
-                throw new ArgumentNullException("Null KnowBooksContext");
-            }
-            if (context.Roles.Any())
-            {
-                return;   // DB has been seeded
-            }
+            //if (context == null || context.Roles == null)
+            //{
+            //    throw new ArgumentNullException("Null KnowBooksContext");
+            //}
+            //if (context.Roles.Any())
+            //{
+            //    return;   // DB has been seeded
+            //}
             context.Roles.AddRange(
                 new ApplicationRole
                 {
@@ -96,8 +96,6 @@ public static class SeedData
 	                NormalizedName = "USER",
 	                ConcurrencyStamp = null
                 }
-
-
 			);
 
 			if (context == null || context.Users == null)
@@ -109,8 +107,6 @@ public static class SeedData
 			{
 				return;   // DB has been seeded
 			}
-
-			
 
 		   context.SaveChanges();
         }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KnowBooks.Migrations
 {
     [DbContext(typeof(KnowBooksContext))]
-    [Migration("20230801091705_InitialCreate")]
+    [Migration("20230801100419_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
