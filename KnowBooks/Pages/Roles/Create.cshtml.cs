@@ -18,32 +18,30 @@ namespace KnowBooks.Pages.Roles
 		private readonly KnowBooksContext _context;
 
 		private readonly ILogger<CreateModel> _logger;
- public CreateModel(RoleManager<ApplicationRole> roleManager, KnowBooksContext context, ILogger<CreateModel> logger)
-    {
-        _roleManager = roleManager;
-        _context = context;
-        _logger = logger; // Inject the logger
-    }
+		public CreateModel(RoleManager<ApplicationRole> roleManager, KnowBooksContext context, ILogger<CreateModel> logger)
+		{
+			_roleManager = roleManager;
+			_context = context;
+			_logger = logger; // Inject the logger
+		}
 		public IActionResult OnGet()
 		{
 			return Page();
 		}
+
 		[BindProperty]
 		public ApplicationRole ApplicationRole { get; set; }
 		public async Task<IActionResult> OnPostAsync()
 		{
 
-			//if (!ModelState.IsValid)
-			//{
-
-			//	return Page();
-			//}
+			if (!ModelState.IsValid)
+			{
+				return Page();
+			}
 
 
 			ApplicationRole.CreatedDate = DateTime.UtcNow;
-			
-			ApplicationRole.IPAddress = Request.HttpContext.Connection.RemoteIpAddress.ToString();
-		
+					
 			IdentityResult roleRuslt = await _roleManager.CreateAsync(ApplicationRole);
 			
 			if (roleRuslt.Succeeded)

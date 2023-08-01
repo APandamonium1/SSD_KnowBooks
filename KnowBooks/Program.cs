@@ -25,7 +25,7 @@ namespace KnowBooks
             {
                 //options.Conventions.AuthorizePage("/Books/Create");
                 //options.Conventions.AuthorizeAreaPage("Identity", "/Account/Manage");
-                options.Conventions.AuthorizeFolder("/Books");
+                //options.Conventions.AuthorizeFolder("/Books");
             });
 
             builder.Services.AddDbContext<KnowBooksContext>(options =>
