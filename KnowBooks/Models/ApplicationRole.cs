@@ -8,6 +8,7 @@ namespace KnowBooks.Models
 {
     public class ApplicationRole : IdentityRole
     {
+
 		[Required]
 		public override string Name { get; set; }
 

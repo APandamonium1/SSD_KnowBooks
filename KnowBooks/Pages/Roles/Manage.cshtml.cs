@@ -80,8 +80,9 @@ namespace KnowBooks.Pages.Roles
 			}
 			return RedirectToPage("Manage");
 		}
-		public async Task<IActionResult> OnPostDeleteUserRoleAsync(string delusername, string
-	   delrolename)
+
+	
+		public async Task<IActionResult> OnPostDeleteUserRoleAsync(string delusername, string delrolename)
 		{
 			//When the Delete this user from Role button is pressed
 			if ((delusername == null) || (delrolename == null))

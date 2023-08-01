@@ -15,14 +15,10 @@ namespace KnowBooks.Pages.Roles
 	{
 		private readonly RoleManager<ApplicationRole> _roleManager;
 
-		private readonly KnowBooksContext _context;
 
-		private readonly ILogger<CreateModel> _logger;
-		public CreateModel(RoleManager<ApplicationRole> roleManager, KnowBooksContext context, ILogger<CreateModel> logger)
+		public CreateModel(RoleManager<ApplicationRole> roleManager)
 		{
 			_roleManager = roleManager;
-			_context = context;
-			_logger = logger; // Inject the logger
 		}
 		public IActionResult OnGet()
 		{
@@ -56,27 +52,8 @@ namespace KnowBooks.Pages.Roles
 				{
 					Console.WriteLine(error.ErrorMessage);
 				}
-				foreach (var error in roleRuslt.Errors)
-				{
-					_logger.LogError($"Role creation error: {error.Description}");
-				}
-				// Handle the error (e.g., display error message)
-				foreach (var error in roleRuslt.Errors)
-				{
-					ModelState.AddModelError(string.Empty, error.Description);
-				}
-
 				return Page();
-			//	foreach (var error in roleRuslt.Errors)
-			//	{
-			//		_logger.LogError($"Role creation error: {error.Description}");
-			//	}
-			//	// Handle the error (e.g., display error message)
-			//	foreach (var error in roleRuslt.Errors)
-			//	{
-			//		ModelState.AddModelError(string.Empty, error.Description);
-			//	}
-			//	return RedirectToPage("Index");
+	
 			}
 
 		}
