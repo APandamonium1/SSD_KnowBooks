@@ -27,19 +27,11 @@ namespace KnowBooks.Models
         public string Genre { get; set; } = string.Empty;
 
 
-        //[RegularExpression("^[A-Za-z]{1,20}$", ErrorMessage = "Please enter either 'Available' or 'Loaned' only.")] //RegEx only, capitalise 1st letter
+        //Following code to restrict the input for Availability Status to only 2 string values ("Available" or "Loaned") 
         [Required, StringLength(9, MinimumLength =6, ErrorMessage = "Please enter either 'Available' or 'Loaned' only.")]
         [Display(Name = "Available Status")]//Displays as 2 words instead of AvailabilityStatus
-        //Following code to restrict the input for Availability Status to only 2 string values ("Available" or "Loaned")
-        public string AvailabilityStatus
-        {
-            get { return _availabilityStatus; }
-            set 
-            {
-                // Set the default value of the AvailabilityStatus property to Available
-                //_availabilityStatus = "Available";
-            }
-        }*/
+        [RegularExpression("^[A-Za-z]{1,20}$", ErrorMessage = "Please enter either 'Available' or 'Loaned' only.")] //RegEx only, capitalise 1st letter
+        public string AvailabilityStatus { get; set; }
 
 
         [Required, StringLength(60)] //Max 60 characters
