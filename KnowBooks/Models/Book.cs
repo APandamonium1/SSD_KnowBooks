@@ -34,7 +34,6 @@ namespace KnowBooks.Models
         [RegularExpression("^[A-Za-z]{1,20}$", ErrorMessage ="Please enter either 'Available' or 'Loaned' only.")]
         public string AvailabilityStatus {get; set; }
 
-        public string AvailabilityStatus { get; set; }
 
         [Required, StringLength(60)] //Max 60 characters
         //Indicates Author as mandatory field
