@@ -64,6 +64,8 @@ namespace KnowBooks
 
             builder.Services.AddReCaptcha(builder.Configuration.GetSection("ReCaptcha"));
 
+            builder.Services.AddHostedService<ReturnService>();
+
 
             var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{searchString?}"
 @model KnowBooks.Pages.Books.IndexModel
 
 @{
@@ -10,6 +10,17 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form>
+    <p>
+        <select asp-for="BookGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -27,6 +38,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].Borrower)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].ReturnDate)
             </th>
             <th>
                 
@@ -52,9 +66,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Borrower)
             </td>
-                <td>
-                    <a asp-page="./Loan" asp-route-id="@item.ISBN">Loan</a>
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnDate)
+            </td>
+            <td>
+                <a asp-page="./Loan" asp-route-id="@item.ISBN">Loan</a>
+            </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ISBN">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ISBN">Details</a> |

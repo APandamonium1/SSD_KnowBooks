@@ -46,5 +46,7 @@ namespace KnowBooks.Models
         [Required, StringLength(60)] //Max 60 characters
         //Indicates Author as mandatory field
         public string Borrower { get; set; }
+
+        public DateTime? ReturnDate { get; set; }
     }
 }

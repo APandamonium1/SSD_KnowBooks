@@ -35,6 +35,12 @@ namespace KnowBooks.Pages.YourBooks
             {
                 return NotFound();
             }
+
+            book.Borrower = "";
+            book.ReturnDate = null;
+            book.AvailabilityStatus = "Available";
+            _context.SaveChanges();
+
             Book = book;
             return Page();
         }
@@ -48,27 +54,7 @@ namespace KnowBooks.Pages.YourBooks
                 return Page();
             }
 
-            _context.Attach(Book).State = EntityState.Modified;
-
-            Book.Borrower = "null";
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BookExists(Book.ISBN))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
+            return RedirectToPage("../YourBooks/Index");
         }
 
         private bool BookExists(int id)

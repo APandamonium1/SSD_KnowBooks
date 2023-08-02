@@ -35,6 +35,21 @@ namespace KnowBooks.Pages.Books
             {
                 return NotFound();
             }
+
+            TimeZoneInfo singaporeTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Singapore Standard Time");
+
+            // Get the current UTC time
+            DateTime utcNow = DateTime.UtcNow;
+
+            // Convert the UTC time to Singapore time
+            DateTime currentDate = TimeZoneInfo.ConvertTimeFromUtc(utcNow, singaporeTimeZone);
+
+
+            book.Borrower = User.Identity.Name;
+            book.ReturnDate = currentDate.AddDays(7);
+            book.AvailabilityStatus = "Loaned";
+            _context.SaveChanges();
+
             Book = book;
             return Page();
         }
@@ -46,26 +61,6 @@ namespace KnowBooks.Pages.Books
             if (!ModelState.IsValid)
             {
                 return Page();
-            }
-
-            _context.Attach(Book).State = EntityState.Modified;
-
-            Book.Borrower = User.Identity.Name;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BookExists(Book.ISBN))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
             }
 
             return RedirectToPage("../YourBooks/Index");

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KnowBooks.Migrations
 {
     [DbContext(typeof(KnowBooksContext))]
-    [Migration("20230801143523_InitialCreate")]
+    [Migration("20230802054539_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -161,6 +161,9 @@ namespace KnowBooks.Migrations
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTime?>("ReturnDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
                         .IsRequired()
