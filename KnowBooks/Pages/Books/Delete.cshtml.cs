@@ -65,7 +65,7 @@ namespace KnowBooks.Pages.Books
                     var auditrecord = new AuditRecord();
                     auditrecord.AuditActionType = "Delete Book Record";
                     auditrecord.DateTimeStamp = DateTime.Now;
-                    auditrecord.KeyMovieFieldID = Book.ISBN;
+                    auditrecord.KeyBookFieldID = Book.ISBN;
                     var userID = User.Identity.Name.ToString();
                     auditrecord.Username = userID;
                     _context.AuditRecords.Add(auditrecord);
