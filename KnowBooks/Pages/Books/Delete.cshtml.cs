@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KnowBooks.Data;
 using KnowBooks.Models;
+using RazorPagesMovie.Models;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace KnowBooks.Pages.Books
 {
+    //[Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;
@@ -54,7 +57,20 @@ namespace KnowBooks.Pages.Books
             {
                 Book = book;
                 _context.Book.Remove(Book);
-                await _context.SaveChangesAsync();
+                // await _context.SaveChangesAsync();
+
+                // Once a record is deleted, create an audit record
+                if (await _context.SaveChangesAsync() > 0)
+                {
+                    var auditrecord = new AuditRecord();
+                    auditrecord.AuditActionType = "Delete Book Record";
+                    auditrecord.DateTimeStamp = DateTime.Now;
+                    auditrecord.KeyMovieFieldID = Book.ISBN;
+                    var userID = User.Identity.Name.ToString();
+                    auditrecord.Username = userID;
+                    _context.AuditRecords.Add(auditrecord);
+                    await _context.SaveChangesAsync();
+                }
             }
 
             return RedirectToPage("./Index");
