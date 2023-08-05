@@ -9,11 +9,13 @@ using KnowBooks.Data;
 using KnowBooks.Models;
 using RazorPagesMovie.Models;
 using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace KnowBooks.Pages.Books
 {
-    //[Authorize(Roles = "Admin")]
-    public class DeleteModel : PageModel
+	[Authorize(Roles = "Staff, Owner")]
+	public class DeleteModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;
 

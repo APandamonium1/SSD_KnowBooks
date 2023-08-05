@@ -9,10 +9,13 @@ using KnowBooks.Data;
 using KnowBooks.Models;
 using RazorPagesMovie.Models;
 using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace KnowBooks.Pages.Books
 {
-    public class CreateModel : PageModel
+	[Authorize(Roles = "Staff, Owner")]
+	public class CreateModel : PageModel
     {
         //[Authorize(Roles = "Admin")]
         private readonly KnowBooks.Data.KnowBooksContext _context;

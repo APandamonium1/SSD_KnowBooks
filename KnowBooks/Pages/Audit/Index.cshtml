@@ -8,7 +8,10 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    @if (User.IsInRole("Owner"))
+    {
+        <a asp-page="Create">Create New</a>
+    }
 </p>
 <table class="table">
     <thead>
@@ -43,11 +46,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.KeyBookFieldID)
             </td>
+                @if (User.IsInRole("Owner")){
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Audit_ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Audit_ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Audit_ID">Delete</a>
             </td>
+                }
         </tr>
 }
     </tbody>

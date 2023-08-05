@@ -8,10 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KnowBooks.Data;
 using KnowBooks.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace KnowBooks.Pages.Books
 {
-    public class EditModel : PageModel
+	[Authorize(Roles = "Staff, Owner")]
+	public class EditModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;
 

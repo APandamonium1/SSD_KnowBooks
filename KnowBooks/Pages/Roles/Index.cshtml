@@ -6,7 +6,12 @@
 <h2>Role Listing</h2>
 <div class="row">
 	<div class="col-md-4">
-		<a asp-page="Create">[Create New Role]</a> |
+		@if (User.IsInRole("Owner") )
+		{
+			<a asp-page="Create">[Create New Role]</a>
+		}
+		|
+				
 		<a asp-page="Manage">[Manage User Roles]</a>
 	</div>
 </div>
@@ -32,11 +37,14 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Description)
 				</td>
-				<td>
-					<a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+				@if (User.IsInRole("Owner") )
+				{
+					<td>
+						<a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
 					<a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
 					<a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
 				</td>
+				}
 			</tr>
 		}
 	</tbody>

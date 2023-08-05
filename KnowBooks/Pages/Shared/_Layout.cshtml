@@ -25,15 +25,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
+                        @if (User.IsInRole("Owner") || User.IsInRole("Member") || User.IsInRole("Staff"))
+                        {
                             <a class="nav-link text-dark" asp-area="" asp-page="/Books/Index">Books</a>
-                        </li>
-                        <li class="nav-item">
+                        }
+                        @if (User.IsInRole("Owner") || User.IsInRole("Admin"))
+                        {
                             <a class="nav-link text-dark" asp-area="" asp-page="/Roles/Index">Roles</a>
-                        </li>
-                        <li class="nav-item">
+                        }
+                        @if (User.IsInRole("Member"))
+                        {
                             <a class="nav-link text-dark" asp-area="" asp-page="/YourBooks/Index">Your Books</a>
-                        </li>
+                        }
+                        @if (User.IsInRole("Owner") || User.IsInRole("Admin") || User.IsInRole("Staff"))
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Audit/Index">Audit Log</a>
+                            }
                     </ul>
                 </div>
                 <partial name="_LoginPartial" />
