@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KnowBooks.Migrations
 {
     [DbContext(typeof(KnowBooksContext))]
-    [Migration("20230802123917_InitialCreate")]
+    [Migration("20230805103324_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -284,6 +284,33 @@ namespace KnowBooks.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("RazorPagesMovie.Models.AuditRecord", b =>
+                {
+                    b.Property<int>("Audit_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Audit_ID"));
+
+                    b.Property<string>("AuditActionType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateTimeStamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("KeyMovieFieldID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Audit_ID");
+
+                    b.ToTable("AuditRecords");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

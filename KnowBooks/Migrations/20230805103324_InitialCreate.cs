@@ -56,6 +56,22 @@ namespace KnowBooks.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AuditRecords",
+                columns: table => new
+                {
+                    Audit_ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AuditActionType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateTimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    KeyMovieFieldID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AuditRecords", x => x.Audit_ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Book",
                 columns: table => new
                 {
@@ -236,6 +252,9 @@ namespace KnowBooks.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "AuditRecords");
 
             migrationBuilder.DropTable(
                 name: "Book");

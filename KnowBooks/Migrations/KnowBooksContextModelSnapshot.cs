@@ -283,6 +283,33 @@ namespace KnowBooks.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("RazorPagesMovie.Models.AuditRecord", b =>
+                {
+                    b.Property<int>("Audit_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Audit_ID"));
+
+                    b.Property<string>("AuditActionType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateTimeStamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("KeyMovieFieldID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Audit_ID");
+
+                    b.ToTable("AuditRecords");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("KnowBooks.Models.ApplicationRole", null)
