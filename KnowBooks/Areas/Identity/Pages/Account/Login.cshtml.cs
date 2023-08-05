@@ -17,23 +17,27 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using AspNetCore.ReCaptcha;
 using System.Configuration;
+using RazorPagesMovie.Models;
 
 namespace KnowBooks.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
+        //private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
         private readonly IReCaptchaService _recaptchaService;
         private readonly IConfiguration _configuration;
+        private readonly KnowBooks.Data.KnowBooksContext _context;
 
         public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, IReCaptchaService recaptchaService,
-            IConfiguration configuration)
+            IConfiguration configuration, KnowBooks.Data.KnowBooksContext context)
         {
             _signInManager = signInManager;
             _logger = logger;
             _recaptchaService = recaptchaService;
             _configuration = configuration;
+            _context = context;
         }
 
         /// <summary>
@@ -148,6 +152,17 @@ namespace KnowBooks.Areas.Identity.Pages.Account
                 }
                 else
                 {
+                    // Login failed attempt - create an audit record
+                    var auditrecord = new AuditRecord();
+                    auditrecord.AuditActionType = "Failed Login";
+                    auditrecord.DateTimeStamp = DateTime.Now;
+                    auditrecord.KeyBookFieldID = 999;
+                    // 999 – dummy record
+                    auditrecord.Username = Input.Email;
+                    // save the email used for the failed login
+                    _context.AuditRecords.Add(auditrecord);
+                    await _context.SaveChangesAsync();
+
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return Page();
                 }
