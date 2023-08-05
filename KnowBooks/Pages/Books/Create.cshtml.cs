@@ -7,12 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using KnowBooks.Data;
 using KnowBooks.Models;
-using RazorPagesMovie.Models;
-using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace KnowBooks.Pages.Books
 {
-    //[Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;
@@ -40,22 +37,7 @@ namespace KnowBooks.Pages.Books
             }
 
             _context.Book.Add(Book);
-            //await _context.SaveChangesAsync();
-
-            // Once a record is added, create an audit record
-            if (await _context.SaveChangesAsync() > 0)
-            {
-                // Create an auditrecord object
-                var auditrecord = new AuditRecord();
-                auditrecord.AuditActionType = "Add Book Record";
-                auditrecord.DateTimeStamp = DateTime.Now;
-                auditrecord.KeyMovieFieldID = Book.ISBN;
-                // Get current logged-in user
-                var userID = User.Identity.Name.ToString();
-                auditrecord.Username = userID;
-                _context.AuditRecords.Add(auditrecord);
-                await _context.SaveChangesAsync();
-            }
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
