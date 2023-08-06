@@ -9,6 +9,8 @@ namespace KnowBooks.Models
 
         public string BookTitle { get; set; } = string.Empty;
 
+        public string User { get; set; } = string.Empty;
+
         [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
         public int Rating { get; set; }
 

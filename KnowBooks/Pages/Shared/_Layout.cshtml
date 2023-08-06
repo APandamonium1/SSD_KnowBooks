@@ -29,6 +29,10 @@
                         {
                             <a class="nav-link text-dark" asp-area="" asp-page="/Books/Index">Books</a>
                         }
+                        @if (User.IsInRole("Owner") || User.IsInRole("Member") || User.IsInRole("Staff"))
+                        {
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Reviews/Index">Reviews</a>
+                        }
                         @if (User.IsInRole("Owner") || User.IsInRole("Admin"))
                         {
                             <a class="nav-link text-dark" asp-area="" asp-page="/Roles/Index">Roles</a>

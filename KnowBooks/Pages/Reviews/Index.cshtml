@@ -1,0 +1,59 @@
+﻿@page
+@model KnowBooks.Pages.Reviews.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].BookTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Text)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Review) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+                @if (User.IsInRole("Owner") || User.IsInRole("Staff") || User.Identity.Name.Equals(item.User))
+                {
+
+                    <td>
+
+                        <a asp-page="./Edit" asp-route-id="@item.ISBN">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ISBN">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ISBN">Delete</a>
+                    </td>
+                }
+        </tr>
+}
+    </tbody>
+</table>

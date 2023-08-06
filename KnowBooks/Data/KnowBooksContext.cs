@@ -26,5 +26,6 @@ namespace KnowBooks.Data
 
         public DbSet<KnowBooks.Models.Book> Book { get; set; } = default!;
         public DbSet<RazorPagesMovie.Models.AuditRecord> AuditRecords { get; set; }
+        public DbSet<KnowBooks.Models.Review> Review { get; set; } = default!;
     }
 }
