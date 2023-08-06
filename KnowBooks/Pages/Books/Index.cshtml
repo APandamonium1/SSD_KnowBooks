@@ -72,12 +72,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ReturnDate)
             </td>
-                @if (User.IsInRole("Member"))
-                {
+                
             <td>
-                <a asp-page="./Loan" asp-route-id="@item.ISBN">Loan</a>
-            </td>
+                @if (User.IsInRole("Member") && item.Borrower == "")
+                {
+                    <a asp-page="./Loan" asp-route-id="@item.ISBN">Loan</a>
                 }
+            </td>
+                
              @if (User.IsInRole("Owner") || User.IsInRole("Staff")) {
 
             <td>

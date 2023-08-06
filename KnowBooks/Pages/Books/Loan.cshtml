@@ -5,10 +5,22 @@
     ViewData["Title"] = "Loan";
 }
 
-<h1>Book loaned!</h1>
+@if (Model.BorrowedBooksCount < 3)
+{
+    <h1>Book loaned!</h1>
 
-<h4>@Model.Book.Title</h4>
-<hr />
+    <h4>@Model.Book.Title</h4>
+    <hr />
+    <p>The book has been loaned!</p>
+}
+else
+{
+    <h1>Unable to Loan Book</h1>
+
+    <h4>@Model.Book.Title</h4>
+    <hr />
+    <p>You have already borrowed 3 books.</p>
+}
 
 <div>
     <a asp-page="../YourBooks/Index">Go to Your Books</a>

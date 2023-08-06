@@ -23,6 +23,9 @@ namespace KnowBooks.Pages.Books
             _context = context;
         }
 
+        public int BorrowedBooksCount { get; set; }
+
+
         [BindProperty]
         public Book Book { get; set; } = default!;
 
@@ -39,19 +42,25 @@ namespace KnowBooks.Pages.Books
                 return NotFound();
             }
 
-            TimeZoneInfo singaporeTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Singapore Standard Time");
+            BorrowedBooksCount = await _context.Book.CountAsync(b => b.Borrower == User.Identity.Name);
 
-            // Get the current UTC time
-            DateTime utcNow = DateTime.UtcNow;
+            if (BorrowedBooksCount < 3)
+            {
+                TimeZoneInfo singaporeTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Singapore Standard Time");
 
-            // Convert the UTC time to Singapore time
-            DateTime currentDate = TimeZoneInfo.ConvertTimeFromUtc(utcNow, singaporeTimeZone);
+                // Get the current UTC time
+                DateTime utcNow = DateTime.UtcNow;
+
+                // Convert the UTC time to Singapore time
+                DateTime currentDate = TimeZoneInfo.ConvertTimeFromUtc(utcNow, singaporeTimeZone);
 
 
-            book.Borrower = User.Identity.Name;
-            book.ReturnDate = currentDate.AddDays(7);
-            book.AvailabilityStatus = "Loaned";
-            _context.SaveChanges();
+                book.Borrower = User.Identity.Name;
+                book.ReturnDate = currentDate.AddDays(7);
+                book.AvailabilityStatus = "Loaned";
+                _context.SaveChanges();
+            }
+            
 
             Book = book;
             return Page();
