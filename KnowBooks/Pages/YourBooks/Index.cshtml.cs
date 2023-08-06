@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KnowBooks.Data;
 using KnowBooks.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace KnowBooks.Pages.YourBooks
 {
+    [Authorize(Policy = "TwoFactorEnabled", Roles = "Owner, Staff, Member")]
     public class IndexModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;

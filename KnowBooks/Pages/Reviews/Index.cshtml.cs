@@ -9,9 +9,12 @@ using KnowBooks.Data;
 using KnowBooks.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace KnowBooks.Pages.Reviews
 {
+    [Authorize(Policy = "TwoFactorEnabled", Roles = "Owner, Staff, Member")]
     public class IndexModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;
