@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace KnowBooks.Pages.Books
 {
-    [Authorize(Policy = "TwoFactorEnabled", Roles = "Owner, Staff, Member")]
+    //[Authorize(Policy = "TwoFactorEnabled", Roles = "Owner, Staff, Member")]
     public class IndexModel : PageModel
     {
         private readonly KnowBooks.Data.KnowBooksContext _context;

@@ -35,7 +35,8 @@ public class SeedData
                     Genre = "Philosophy",
                     AvailabilityStatus = "Available",
                     Borrower = "",
-                    ReturnDate = null
+                    ReturnDate = null,
+                    Image = GetImageData("/Images/Meditations.jpg")
                 },
 
                 new Book
@@ -45,7 +46,8 @@ public class SeedData
                     Genre = "Self-help",
                     AvailabilityStatus = "Loaned",
                     Borrower = "",
-                    ReturnDate = null
+                    ReturnDate = null,
+                    Image = GetImageData("/Images/ThePowerOfHabit.jpg")
                 },
 
                 new Book
@@ -55,7 +57,8 @@ public class SeedData
                     Genre = "Self-help",
                     AvailabilityStatus = "Available",
                     Borrower = "",
-                    ReturnDate = null
+                    ReturnDate = null,
+                    Image = GetImageData("/Images/Outliers.jpg")
                 },
 
                 new Book
@@ -65,7 +68,8 @@ public class SeedData
                     Genre = "Fiction",
                     AvailabilityStatus = "Available",
                     Borrower = "",
-                    ReturnDate = null
+                    ReturnDate = null,
+                    Image = GetImageData("/Images/Afterlives.jpg")
                 }
             );
 
@@ -174,6 +178,11 @@ public class SeedData
 			context.SaveChanges();
         }
 
+    }
+
+    private static byte[] GetImageData(string imagePath)
+    {
+        return System.IO.File.ReadAllBytes(imagePath);
     }
 
 }
