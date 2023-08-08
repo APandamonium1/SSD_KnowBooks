@@ -39,5 +39,7 @@ namespace KnowBooks.Models
         public string Borrower { get; set; }
 
         public DateTime? ReturnDate { get; set; }
+
+        public byte[] Image { get; set; }
     }
 }

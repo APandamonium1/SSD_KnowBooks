@@ -32,13 +32,21 @@ namespace KnowBooks.Pages.Books
 
         [BindProperty]
         public Book Book { get; set; } = default!;
-        
+
+        [BindProperty]
+        public IFormFile ImageFile { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
           if (!ModelState.IsValid || _context.Book == null || Book == null)
             {
+                if (ImageFile != null && ImageFile.Length > 0)
+                {
+                    using var memoryStream = new MemoryStream();
+                    await ImageFile.CopyToAsync(memoryStream);
+                    Book.Image = memoryStream.ToArray();
+                }
                 return Page();
             }
 

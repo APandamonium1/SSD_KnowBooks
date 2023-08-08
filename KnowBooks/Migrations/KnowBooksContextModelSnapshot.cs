@@ -160,6 +160,10 @@ namespace KnowBooks.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<byte[]>("Image")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<DateTime?>("ReturnDate")
                         .HasColumnType("datetime2");
 

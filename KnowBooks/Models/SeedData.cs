@@ -60,7 +60,7 @@ public class SeedData
 
                 new Book
                 {
-                    Title = "Afterlifes",
+                    Title = "Afterlives",
                     Author = "Abdulrazak Gurnah",
                     Genre = "Fiction",
                     AvailabilityStatus = "Available",

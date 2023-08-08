@@ -26,6 +26,10 @@ namespace KnowBooks.Pages.Books
         [BindProperty]
         public Book Book { get; set; } = default!;
 
+        [BindProperty]
+        public IFormFile ImageFile { get; set; }
+
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Book == null)
@@ -48,6 +52,12 @@ namespace KnowBooks.Pages.Books
         {
             if (!ModelState.IsValid)
             {
+                if (ImageFile != null && ImageFile.Length > 0)
+                {
+                    using var memoryStream = new MemoryStream();
+                    await ImageFile.CopyToAsync(memoryStream);
+                    Book.Image = memoryStream.ToArray();
+                }
                 return Page();
             }
 
