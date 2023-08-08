@@ -47,7 +47,7 @@
         <dd class="col-sm-10">
             @if (Model.Book.Image != null)
             {
-                <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.Book.Image)" alt="Book Image" style="max-height: 200px;" />
+                <img src="data:Image/jpeg;base64,@Convert.ToBase64String(Model.Book.Image)" alt="Book Image" style="max-height: 200px;" />
             }
             else
             {

@@ -36,7 +36,7 @@ public class SeedData
                     AvailabilityStatus = "Available",
                     Borrower = "",
                     ReturnDate = null,
-                    Image = GetImageData("/Images/Meditations.jpg")
+                    Image = GetImageData("../Images/Meditations.jpg")
                 },
 
                 new Book
@@ -47,7 +47,7 @@ public class SeedData
                     AvailabilityStatus = "Loaned",
                     Borrower = "",
                     ReturnDate = null,
-                    Image = GetImageData("/Images/ThePowerOfHabit.jpg")
+                    Image = GetImageData("../Images/ThePowerOfHabit.jpg")
                 },
 
                 new Book
@@ -58,7 +58,7 @@ public class SeedData
                     AvailabilityStatus = "Available",
                     Borrower = "",
                     ReturnDate = null,
-                    Image = GetImageData("/Images/Outliers.jpg")
+                    Image = GetImageData("../Images/Outliers.jpg")
                 },
 
                 new Book
@@ -69,7 +69,7 @@ public class SeedData
                     AvailabilityStatus = "Available",
                     Borrower = "",
                     ReturnDate = null,
-                    Image = GetImageData("/Images/Afterlives.jpg")
+                    Image = GetImageData("../Images/Afterlives.jpg")
                 }
             );
 

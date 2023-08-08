@@ -28,8 +28,4 @@
     <PackageReference Include="RecaptchaNet" Version="3.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Images\" />
-  </ItemGroup>
-
 </Project>
