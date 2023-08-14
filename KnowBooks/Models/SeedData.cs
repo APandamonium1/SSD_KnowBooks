@@ -187,7 +187,8 @@ public class SeedData
     private static byte[] GetImageData(string imagePath)
     {
         string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, imagePath);
-        return System.IO.File.ReadAllBytes(imagePath);
+        byte[] imageBytes = System.IO.File.ReadAllBytes(fullPath);
+        return imageBytes;
     }
 
 }
