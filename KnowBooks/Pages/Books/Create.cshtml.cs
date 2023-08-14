@@ -39,7 +39,7 @@ namespace KnowBooks.Pages.Books
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Book == null || Book == null)
+            if (!ModelState.IsValid || _context.Book == null || Book == null)
             {
                 if (ImageFile != null && ImageFile.Length > 0)
                 {

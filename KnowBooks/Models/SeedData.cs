@@ -27,6 +27,12 @@ public class SeedData
                 return;   // DB has been seeded
             }
 
+            // Update the relative image paths
+            var meditationsImagePath = "Models/Images/Meditations.jpg";
+            var powerOfHabitImagePath = "Models/Images/ThePowerOfHabit.jpg";
+            var outliersImagePath = "Models/Images/Outliers.jpg";
+            var afterlivesImagePath = "Models/Images/Afterlives.jpg";
+
             context.Book.AddRange(
                 new Book
                 {
@@ -36,7 +42,7 @@ public class SeedData
                     AvailabilityStatus = "Available",
                     Borrower = "",
                     ReturnDate = null,
-                    Image = GetImageData("../Images/Meditations.jpg")
+                    Image = GetImageData(meditationsImagePath)
                 },
 
                 new Book
@@ -47,7 +53,7 @@ public class SeedData
                     AvailabilityStatus = "Loaned",
                     Borrower = "",
                     ReturnDate = null,
-                    Image = GetImageData("../Images/ThePowerOfHabit.jpg")
+                    Image = GetImageData(powerOfHabitImagePath)
                 },
 
                 new Book
@@ -58,7 +64,7 @@ public class SeedData
                     AvailabilityStatus = "Available",
                     Borrower = "",
                     ReturnDate = null,
-                    Image = GetImageData("../Images/Outliers.jpg")
+                    Image = GetImageData(outliersImagePath)
                 },
 
                 new Book
@@ -69,7 +75,7 @@ public class SeedData
                     AvailabilityStatus = "Available",
                     Borrower = "",
                     ReturnDate = null,
-                    Image = GetImageData("../Images/Afterlives.jpg")
+                    Image = GetImageData(afterlivesImagePath)
                 }
             );
 
@@ -182,6 +188,7 @@ public class SeedData
 
     private static byte[] GetImageData(string imagePath)
     {
+        string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, imagePath);
         return System.IO.File.ReadAllBytes(imagePath);
     }
 

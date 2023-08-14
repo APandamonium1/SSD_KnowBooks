@@ -1869,3 +1869,5 @@ C:\Users\robin\OneDrive - Ngee Ann Polytechnic\SSD\KnowBooks2\KnowBooks\obj\Debu
 C:\Users\robin\OneDrive - Ngee Ann Polytechnic\SSD\KnowBooks2\KnowBooks\obj\Debug\net7.0\KnowBooks.pdb
 C:\Users\robin\OneDrive - Ngee Ann Polytechnic\SSD\KnowBooks2\KnowBooks\obj\Debug\net7.0\KnowBooks.genruntimeconfig.cache
 C:\Users\robin\OneDrive - Ngee Ann Polytechnic\SSD\KnowBooks2\KnowBooks\obj\Debug\net7.0\ref\KnowBooks.dll
+C:\Users\PandaJW\Desktop\Secure Software Development\Assignment\KnowGitBooks\KnowBooks\bin\Debug\net7.0\Images\Afterlives.jpeg
+C:\Users\PandaJW\Desktop\Secure Software Development\Assignment\KnowGitBooks\KnowBooks\bin\Debug\net7.0\Models\ThePowerOfHabit.jpg
